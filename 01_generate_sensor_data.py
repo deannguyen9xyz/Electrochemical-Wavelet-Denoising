@@ -3,19 +3,28 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import os
 
-# -- 1. Parameters --
+#==============
+# 1. Parameters
+#==============
+
 N = 300  # Number of data points (measurements)
 time_max = 1500  # Total time in seconds (25 minutes)
 t = np.linspace(0, time_max, N)
 
-# -- 2. Ideal Signal (Exponential Binding) --
+#======================================
+# 2. Ideal Signal (Exponential Binding)
+#======================================
+
 I_baseline = 3.0 # Baseline SWV peak current in µA
 I_max_change = 12.0 # Total change in current due to binding
 k_bind = 0.004 # Binding rate constant (controls steepness)
 
 I_Ideal = I_baseline + I_max_change * (1 - np.exp(-k_bind * t))
 
-# -- 3. Noise Components --
+#====================
+# 3. Noise Components
+#====================
+
 # A. High-Frequency Gaussian Noise
 sigma_high_freq = 0.4 # Standard deviation of the noise
 N_Gaussian = np.random.normal(0, sigma_high_freq, N)
@@ -37,10 +46,16 @@ drift_frequency = 1.2 * np.pi / time_max  # Very slow oscillation
 drift_amplitude = 1.1  # Drift up to 2 µA
 noise_drift = drift_amplitude * np.sin(drift_frequency * t)
 
-# -- 4. Raw Signal --
+#==============
+# 4. Raw Signal
+#==============
+
 I_Raw = I_Ideal + N_Gaussian + noise_spikes + noise_drift
 
-# -- 5. Visualization --
+#=================
+# 5. Visualization
+#=================
+
 plt.figure(figsize=(20, 12))
 plt.plot(t, I_Raw, label='Raw SWV Peak Current (with noise)', color='orange')
 plt.plot(t, I_Ideal, label='Ideal Signal (Binding Kinetics)', color='blue', linestyle='--')
@@ -54,7 +69,9 @@ plt.grid(True)
 
 plt.show()
 
-# -- 6. Save file --
+#=============
+# 6. Save file
+#=============
 
 # Create csv file
 data_dir = 'data'
