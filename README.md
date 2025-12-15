@@ -1,5 +1,5 @@
 # Electrochemical-Wavelet-Denoising
-This Python project showcases advanced signal processing for electrochemical time-series data, a critical challenge in modern sensor development. The Discrete Wavelet Transform (DWT) is used to achieve superior noise reduction from simulated electrochemical biding kinetic data.
+This Python project showcases advanced signal processing for electrochemical time-series data, a critical challenge in modern sensor development. The Discrete Wavelet Transform (DWT) is used to achieve superior noise reduction from simulated electrochemical binding kinetic data.
 
 ## 🌟 Key Features
 
@@ -59,11 +59,7 @@ Script generates figure in the *results/* directory.
 
 *Kinetic Stability: Anchoring the curve, eliminating vertical shifts.
 
-*Acknowledging the Limitation
-
-  *Source of Error: The final deviation between the "Final Recovered" signal (Red Line) and the "Ideal Signal" (Dotted Line) is attributed to the   residual complex, non-linear (sinusoidal) drift present in the simulated data.
-
-  *Mathematical Constraint: It was mathematically incapable of perfectly modeling the sinusoidal noise, resulting in a final RMSE higher than the target.
+*Acknowledging the Limitation: Non-linear (sinusoidal) drift present in the simulated data. It was mathematically incapable of perfectly modeling the sinusoidal noise, resulting in a final RMSE higher than the target.
 
 *The method has extracted all physically identifiable information from the data.
 
